@@ -2,6 +2,9 @@
 
 ByteDrive is a high-performance Media Archive API designed for secure cloud storage
 
+> [!CAUTION]
+> Running this project via Docker on Windows may lead to high RAM consumption by the VmmemWSL process. It is recommended to limit WSL 2 memory usage in your .wslconfig file to prevent the Docker Engine from consuming all available system resources
+
 ## Technology Stack:
 
 * Django & Django REST Framework - main framework for building the API
