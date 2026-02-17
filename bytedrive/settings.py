@@ -36,81 +36,89 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'drf_spectacular',
-
-    'drive',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework.authtoken",
+    "drf_spectacular",
+    "drive",
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication', 
-        'rest_framework.authentication.TokenAuthentication',
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
     ],
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'ByteDrive API',
-    'DESCRIPTION': (
-        'ByteDrive is a high-performance Media Archive API designed for secure cloud storage. '
-        'It allows users to upload, manage, and share media files with automated storage limit tracking. '
-        'Features include Token-based authentication, real-time storage calculation via Django signals, '
-        'and optimized database queries to prevent N+1 issues.'
+    "TITLE": "ByteDrive API",
+    "DESCRIPTION": (
+        "ByteDrive is a high-performance Media Archive API designed for secure cloud storage. "
+        "It allows users to upload, manage, and share media files with automated storage limit tracking. "
+        "Features include Token-based authentication, real-time storage calculation via Django signals, "
+        "and optimized database queries to prevent N+1 issues."
     ),
     # year.month.day.major.minor
-    'VERSION': '26.02.17.1.0',
-    'SERVE_INCLUDE_SCHEMA': False,
-    'CONTACT': {
-        'name': 'Marchello',
-        'url': 'https://github.com/Marchello-Projects',
-        'email': 'paskalovmarkus@gmail.com',
+    "VERSION": "26.02.17.1.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "CONTACT": {
+        "name": "Marchello",
+        "url": "https://github.com/Marchello-Projects",
+        "email": "paskalovmarkus@gmail.com",
     },
-    'SWAGGER_UI_SETTINGS': {
-        'defaultModelsExpandDepth': -1,
+    "SWAGGER_UI_SETTINGS": {
+        "defaultModelsExpandDepth": -1,
     },
-    'TAGS': [
-        {'name': 'Auth', 'description': 'Endpoints for user registration, login, and profile management.'},
-        {'name': 'Admin', 'description': 'Privileged operations for managing all system files and users.'},
-        {'name': 'Files', 'description': 'Core functionality for uploading, listing, and organizing personal media.'},
+    "TAGS": [
+        {
+            "name": "Auth",
+            "description": "Endpoints for user registration, login, and profile management.",
+        },
+        {
+            "name": "Admin",
+            "description": "Privileged operations for managing all system files and users.",
+        },
+        {
+            "name": "Files",
+            "description": "Core functionality for uploading, listing, and organizing personal media.",
+        },
     ],
 }
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'bytedrive.urls'
+ROOT_URLCONF = "bytedrive.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'bytedrive.wsgi.application'
+WSGI_APPLICATION = "bytedrive.wsgi.application"
 
 
 # Database
@@ -122,7 +130,7 @@ DATABASES = {
         "NAME": os.getenv("DB_NAME"),
         "USER": os.getenv("DB_USER"),
         "PASSWORD": os.getenv("DB_PASSWORD"),
-        "HOST": "localhost",
+        "HOST": os.getenv("DB_HOST"),
         "PORT": "5432",
     }
 }
@@ -132,16 +140,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -149,9 +157,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -161,5 +169,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
-AUTH_USER_MODEL = 'drive.User'
+STATIC_URL = "static/"
+AUTH_USER_MODEL = "drive.User"
