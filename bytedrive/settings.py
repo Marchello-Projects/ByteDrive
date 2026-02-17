@@ -59,12 +59,28 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'ByteDrive API',
-    'DESCRIPTION': 'Media Archive API',
-    'VERSION': '1.0.0',
+    'DESCRIPTION': (
+        'ByteDrive is a high-performance Media Archive API designed for secure cloud storage. '
+        'It allows users to upload, manage, and share media files with automated storage limit tracking. '
+        'Features include Token-based authentication, real-time storage calculation via Django signals, '
+        'and optimized database queries to prevent N+1 issues.'
+    ),
+    # year.month.day.major.minor
+    'VERSION': '26.02.17.1.0',
     'SERVE_INCLUDE_SCHEMA': False,
-    'SWAGGER_UI_SETTINGS': {
-        'defaultModelsExpandDepth': -1, 
+    'CONTACT': {
+        'name': 'Marchello',
+        'url': 'https://github.com/Marchello-Projects',
+        'email': 'paskalovmarkus@gmail.com',
     },
+    'SWAGGER_UI_SETTINGS': {
+        'defaultModelsExpandDepth': -1,
+    },
+    'TAGS': [
+        {'name': 'Auth', 'description': 'Endpoints for user registration, login, and profile management.'},
+        {'name': 'Admin', 'description': 'Privileged operations for managing all system files and users.'},
+        {'name': 'Files', 'description': 'Core functionality for uploading, listing, and organizing personal media.'},
+    ],
 }
 
 MIDDLEWARE = [
