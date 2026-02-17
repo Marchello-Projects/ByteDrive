@@ -59,7 +59,7 @@ PYTHONUNBUFFERED=1
 > # On Windows: python -c "import secrets; print(secrets.token_urlsafe(50))"
 > ```
 
-### 3. Prepare Entrypoint:
+### 3. Prepare Entrypoint
 
 > [!WARNING]
 > If you are on Windows, ensure the entrypoint.sh file uses LF (Linux) line endings instead of CRLF. In VS Code, you can change this in the bottom right corner of the editor
